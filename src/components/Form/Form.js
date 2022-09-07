@@ -38,7 +38,7 @@ class Form extends Component {
                     <option value='pool'>Pool</option>
                 </select>
                 <input onChange={(event) => this.handleState(event)} name='tutorial' type='text' placeholder='Link to Tutorial'/>
-                <button onClick={(event) => this.handleSubmit(event)}>SEND IT</button>
+                <button onClick={(event) => this.handleSubmit(event)} id='formBtn'>SEND IT</button>
             </form>
         )
     }

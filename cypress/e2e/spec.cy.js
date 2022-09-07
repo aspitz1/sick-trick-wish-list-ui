@@ -62,7 +62,39 @@ describe('empty spec', () => {
   })
 
   it('User should be able to add a new trick', () => {
-    cy.get('select[name="stance"]')
+    cy.intercept('GET', 'http://localhost:3001/api/v1/tricks',
+      [
+          {
+              "stance": "regular",
+              "name": "treflip",
+              "obstacle": "flat ground",
+              "tutorial": "https://www.youtube.com/watch?v=XGw3YkQmNig",
+              "id": 1
+          },
+          {
+              "stance": "switch",
+              "name": "heelflip",
+              "obstacle": "stairs",
+              "tutorial": "https://www.youtube.com/watch?v=9N9swrZU1HA",
+              "id": 2
+          },
+          {
+              "stance": "regular",
+              "name": "frontside 50-50, backside 180 out",
+              "obstacle": "ledge",
+              "tutorial": "https://www.youtube.com/watch?v=9N9swrZU1HA",
+              "id": 3
+          },
+          {
+              "stance": "regular",
+              "name": "toeflip",
+              "obstacle": "pool",
+              "tutorial": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              "id": 4
+          }
+      ]
+    )
+    .get('select[name="stance"]')
     .select('regular')
     .get('input[name="name"]')
     .type('toeflip')
@@ -70,7 +102,7 @@ describe('empty spec', () => {
     .select('pool')
     .get('input[name="tutorial"]')
     .type('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-    .get('button')
+    .get('button[id="formBtn"]')
     .should('contain', 'SEND IT')
     .click()
     .get('section[class="card-container"]')
