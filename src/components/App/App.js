@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './App.css';
-import { getTricks } from '../../apiCalls/apiCalls';
+import { getTricks, postTrick } from '../../apiCalls/apiCalls';
 import TrickCards from '../TrickCards/TrickCards';
 import Form from '../Form/Form';
 
@@ -21,6 +21,7 @@ class App extends Component {
 
   addTrick = (trick) => {
     this.setState({ tricks: [...this.state.tricks, { ...trick, id: Date.now() }] });
+    postTrick(trick)
   }
 
   render() {
