@@ -16,10 +16,11 @@ class App extends Component {
     getTricks()
       .then(response => response.json())
       .then(data  => this.setState({ tricks: data }))
+      .catch(err => console.log(err))
   }
 
   addTrick = (trick) => {
-    this.setState({ tricks: [...this.state.tricks, trick] });
+    this.setState({ tricks: [...this.state.tricks, { ...trick, id: Date.now() }] });
   }
 
   render() {
