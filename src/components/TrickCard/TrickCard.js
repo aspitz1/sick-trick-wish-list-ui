@@ -1,6 +1,6 @@
 import './TrickCard.css';
 
-const TrickCard = ({ trick }) => {
+const TrickCard = ({ trick, deleteTrick }) => {
     const { stance, name, obstacle, tutorial, id } = trick;
     return (
         <article className='trick-card' id={id}>
@@ -9,6 +9,7 @@ const TrickCard = ({ trick }) => {
                 <li>Obstacle: {obstacle}</li>
                 <li>Link to Tutorial: <a href={tutorial}>{tutorial}</a></li>
             </ul>
+            <button onClick={() => deleteTrick(id)}>DELETE</button>
         </article>
     )
 }

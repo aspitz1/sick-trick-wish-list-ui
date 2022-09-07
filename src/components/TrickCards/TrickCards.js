@@ -1,9 +1,9 @@
 import TrickCard from "../TrickCard/TrickCard";
 import './TrickCards.css';
 
-const TrickCards = ({ tricks }) => {
+const TrickCards = ({ tricks, deleteTrick }) => {
     const makeTrickCards = tricks.map(trick => {
-        return <TrickCard trick={trick} key={trick.id}/>
+        return <TrickCard trick={trick} deleteTrick={deleteTrick} key={trick.id}/>
     })
 
     return (

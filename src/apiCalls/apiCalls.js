@@ -3,7 +3,7 @@ const getTricks = () => {
 }
 
 const postTrick = (body) => {
-    fetch('http://localhost:3001/api/v1/tricks', {
+    return fetch('http://localhost:3001/api/v1/tricks', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -12,4 +12,10 @@ const postTrick = (body) => {
     });
 }
 
-export { getTricks, postTrick };
+const deleteTrick = (id) => {
+    return fetch('http://localhost:3001/api/v1/tricks/' + id, {
+        method: 'DELETE'
+    });
+}
+
+export { getTricks, postTrick, deleteTrick };
