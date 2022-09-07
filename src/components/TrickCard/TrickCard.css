@@ -1,0 +1,13 @@
+.trick-card {
+    background-color: aliceblue;
+    width: 30vw;
+    overflow-wrap: break-word;
+    padding: 0;
+    margin: 5px;
+}
+
+.trick-ul {
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+}
